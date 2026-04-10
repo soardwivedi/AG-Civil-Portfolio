@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[#0d0d14] text-white font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-[#0d0d14];
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#ff6a00] rounded-full;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-20 px-4 md:px-8 lg:px-16;
+  }
+
+  .section-title {
+    @apply font-heading text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-wide;
+  }
+
+  .btn-primary {
+    @apply bg-[#ff6a00] text-white font-bold py-3 px-8 uppercase tracking-wider 
+           hover:bg-[#e65c00] transition-all duration-300 
+           border-2 border-[#ff6a00] hover:border-[#e65c00]
+           inline-flex items-center gap-2;
+  }
+
+  .btn-outline {
+    @apply border-2 border-white text-white font-bold py-3 px-8 uppercase tracking-wider
+           hover:bg-white hover:text-[#0d0d14] transition-all duration-300
+           inline-flex items-center gap-2;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#ff6a00]/20;
+  }
+
+  .gradient-line {
+    @apply h-1 w-16 bg-[#ff6a00] mb-6;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .glow-orange {
+    box-shadow: 0 0 30px rgba(255, 106, 0, 0.3);
+  }
+
+  .bg-dark-card {
+    background-color: #13131f;
+  }
+
+  .bg-dark-section {
+    background-color: #0a0a14;
+  }
+}
+
+.clip-diagonal {
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+.clip-diagonal-reverse {
+  clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+}
+
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+.float-anim {
+  animation: floatUpDown 4s ease-in-out infinite;
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(255, 106, 0, 0.8), 0 0 40px rgba(255, 106, 0, 0.4);
+}
