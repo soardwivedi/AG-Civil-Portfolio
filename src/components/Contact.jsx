@@ -27,8 +27,8 @@ const contactInfo = [
   {
     icon: FiMail,
     label: "Email",
-    value: "abhigarg15071999@gmail.com",
-    href: "mailto:abhigarg15071999@gmail.com",
+    value: "aecc.jind@gmail.com",
+    href: "mailto:aecc.jind@gmail.com",
   },
   {
     icon: FiPhone,

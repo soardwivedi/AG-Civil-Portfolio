@@ -109,7 +109,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="mailto:abhigarg15071999@gmail.com"
+                href="mailto:aecc.jind@gmail.com"
                 className="w-10 h-10 bg-[#13131f] border border-white/10 flex items-center justify-center
                            text-gray-400 hover:bg-[#ff6a00] hover:text-white hover:border-[#ff6a00] 
                            transition-all duration-200"
@@ -172,14 +172,20 @@ export default function Footer() {
             </h4>
             <div className="flex flex-col gap-4">
               <a
-                href="mailto:abhigarg15071999@gmail.com"
+                href="mailto:aecc.jind@gmail.com"
                 className="flex items-start gap-3 text-gray-500 hover:text-[#ff6a00] transition-colors group"
               >
                 <FiMail className="mt-0.5 flex-shrink-0 group-hover:text-[#ff6a00]" />
                 <span className="text-sm font-sans break-all">
-                  abhigarg15071999@gmail.com
+                  aecc.jind@gmail.com
                 </span>
               </a>
+              <div className="flex items-start gap-3 text-gray-500">
+                <span className="font-bold text-xs text-[#ff6a00]">GST:</span>
+                <span className="text-sm font-sans break-all">
+                  06DGYPG2509F1ZA
+                </span>
+              </div>
               <a
                 href="tel:+919813584799"
                 className="flex items-center gap-3 text-gray-500 hover:text-[#ff6a00] transition-colors group"
