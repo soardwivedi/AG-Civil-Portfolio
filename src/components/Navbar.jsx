@@ -1,52 +1,52 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { FiMenu, FiX, FiTriangle } from 'react-icons/fi'
-import { MdConstruction } from 'react-icons/md'
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FiMenu, FiX, FiTriangle } from "react-icons/fi";
+import { MdConstruction } from "react-icons/md";
 
 const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Contact', href: '#contact' },
-]
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Projects", href: "#projects" },
+  { label: "Skills", href: "#skills" },
+  { label: "Contact", href: "#contact" },
+];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [activeLink, setActiveLink] = useState('#home')
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("#home");
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleNavClick = (href) => {
-    setActiveLink(href)
-    setMenuOpen(false)
-    const el = document.querySelector(href)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-  }
+    setActiveLink(href);
+    setMenuOpen(false);
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#0d0d14]/95 backdrop-blur-md shadow-2xl shadow-black/50 border-b border-[#ff6a00]/20'
-          : 'bg-transparent'
+          ? "bg-[#0d0d14]/95 backdrop-blur-md shadow-2xl shadow-black/50 border-b border-[#ff6a00]/20"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
         {/* Logo */}
         <motion.button
-          onClick={() => handleNavClick('#home')}
+          onClick={() => handleNavClick("#home")}
           className="flex items-center gap-3 group"
           whileHover={{ scale: 1.02 }}
         >
@@ -61,10 +61,10 @@ export default function Navbar() {
           {/* Text Logo */}
           <div className="flex flex-col leading-none">
             <span className="font-heading font-black text-xl tracking-wider text-white">
-              AG <span className="text-[#ff6a00]">CIVIL</span>
+              Aggarwal Engineering
             </span>
             <span className="font-heading text-xs tracking-[0.3em] text-gray-400 uppercase">
-              Consultancy
+              Consultancy & Construction
             </span>
           </div>
         </motion.button>
@@ -76,13 +76,15 @@ export default function Navbar() {
               key={link.href}
               onClick={() => handleNavClick(link.href)}
               className={`relative font-sans font-medium text-sm uppercase tracking-wider transition-colors duration-200 group ${
-                activeLink === link.href ? 'text-[#ff6a00]' : 'text-gray-300 hover:text-white'
+                activeLink === link.href
+                  ? "text-[#ff6a00]"
+                  : "text-gray-300 hover:text-white"
               }`}
             >
               {link.label}
               <span
                 className={`absolute -bottom-1 left-0 h-0.5 bg-[#ff6a00] transition-all duration-300 ${
-                  activeLink === link.href ? 'w-full' : 'w-0 group-hover:w-full'
+                  activeLink === link.href ? "w-full" : "w-0 group-hover:w-full"
                 }`}
               />
             </button>
@@ -92,7 +94,7 @@ export default function Navbar() {
         {/* CTA Button */}
         <div className="hidden lg:flex items-center gap-4">
           <motion.button
-            onClick={() => handleNavClick('#contact')}
+            onClick={() => handleNavClick("#contact")}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-[#ff6a00] text-white font-heading font-bold text-sm uppercase tracking-widest py-3 px-6 
@@ -118,7 +120,7 @@ export default function Navbar() {
         {menuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
             className="lg:hidden bg-[#0d0d14]/98 backdrop-blur-md border-t border-[#ff6a00]/20 overflow-hidden"
@@ -132,7 +134,9 @@ export default function Navbar() {
                   transition={{ delay: i * 0.07 }}
                   onClick={() => handleNavClick(link.href)}
                   className={`text-left font-heading font-bold text-xl uppercase tracking-wider py-2 border-b border-white/10 transition-colors ${
-                    activeLink === link.href ? 'text-[#ff6a00]' : 'text-gray-300'
+                    activeLink === link.href
+                      ? "text-[#ff6a00]"
+                      : "text-gray-300"
                   }`}
                 >
                   {link.label}
@@ -142,7 +146,7 @@ export default function Navbar() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navLinks.length * 0.07 }}
-                onClick={() => handleNavClick('#contact')}
+                onClick={() => handleNavClick("#contact")}
                 className="bg-[#ff6a00] text-white font-heading font-black uppercase tracking-widest py-3 px-6 mt-2 hover:bg-[#e65c00] transition-colors"
               >
                 Get Consultation
@@ -152,5 +156,5 @@ export default function Navbar() {
         )}
       </AnimatePresence>
     </motion.nav>
-  )
+  );
 }

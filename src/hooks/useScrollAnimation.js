@@ -1,10 +1,14 @@
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 export function useScrollAnimation(threshold = 0.1) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-50px', amount: threshold })
-  return { ref, isInView }
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    once: true,
+    margin: "-50px",
+    amount: threshold,
+  });
+  return { ref, isInView };
 }
 
 export const fadeInUp = {
@@ -12,27 +16,27 @@ export const fadeInUp = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' },
+    transition: { duration: 0.6, ease: "easeOut" },
   },
-}
+};
 
 export const fadeInLeft = {
   hidden: { opacity: 0, x: -60 },
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.6, ease: 'easeOut' },
+    transition: { duration: 0.6, ease: "easeOut" },
   },
-}
+};
 
 export const fadeInRight = {
   hidden: { opacity: 0, x: 60 },
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.6, ease: 'easeOut' },
+    transition: { duration: 0.6, ease: "easeOut" },
   },
-}
+};
 
 export const staggerContainer = {
   hidden: {},
@@ -41,13 +45,13 @@ export const staggerContainer = {
       staggerChildren: 0.1,
     },
   },
-}
+};
 
 export const scaleIn = {
   hidden: { opacity: 0, scale: 0.8 },
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.5, ease: 'easeOut' },
+    transition: { duration: 0.5, ease: "easeOut" },
   },
-}
+};
